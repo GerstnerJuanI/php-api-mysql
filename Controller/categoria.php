@@ -22,6 +22,10 @@ switch ($_GET["op"]) {
         $datos = $categoria->update_categoria($body["cat_id"],$body["cat_nom"],$body["cat_obs"]);
         echo json_encode("modificado correctamente");
         break;
+    case "delete":
+        $datos = $categoria->delete_categoria($body["cat_id"]);
+        echo json_encode("desactivado correctamente");
+        break;
     default:
         # code...
         break;
