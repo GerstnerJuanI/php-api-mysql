@@ -18,6 +18,10 @@ switch ($_GET["op"]) {
         $datos = $categoria->insert_categoria($body["cat_nom"],$body["cat_obs"]);
         echo json_encode("insertado correctamente");
         break;
+    case "update":
+        $datos = $categoria->update_categoria($body["cat_id"],$body["cat_nom"],$body["cat_obs"]);
+        echo json_encode("modificado correctamente");
+        break;
     default:
         # code...
         break;

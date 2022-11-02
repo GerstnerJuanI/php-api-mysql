@@ -46,6 +46,23 @@ class Categoria extends Conectar
     
         return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function update_categoria($cat_id,$cat_nom,$cat_obs)
+    {
+        $conectar=parent::conexion();
+    
+        parent::set_name();
+    
+        $sql="UPDATE tm_categoria SET cat_nom = ?, cat_obs = ? WHERE cat_id = ?";
+        $sql =$conectar->prepare($sql);
+        $sql->bindValue(1,$cat_nom);
+        $sql->bindValue(2,$cat_obs);
+        $sql->bindValue(3,$cat_id);
+
+        $sql->execute();
+    
+        return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 
